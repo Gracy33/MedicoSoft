@@ -40,3 +40,118 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.navbar{
+    background-color: #808080;
+}
+
+.body-content{
+    background-color: #e0e0e0;
+}
+
+h2{
+    margin: 0;     
+    color: #666;
+    padding-top: 90px;
+    font-size: 52px;
+    font-family: "trebuchet ms", sans-serif;    
+}
+.item{
+    background: #f2f2f2;    
+    text-align: center;
+    height: 300px !important;
+}
+.carousel{
+    margin-top: 20px;
+}
+.bs-example{
+	margin: 20px;
+    margin-bottom: 60px;
+}
+
+/*#login{
+    margin-top: 5px;
+    float: right;
+}*/
+.clearfix{
+    clear: both;
+}
+.image{
+    height: 230px;
+    width: 600px;
+}
+
+.row{
+    width: 1100px;
+    height: 200px;
+    border-radius: 5px;
+    background-color: #60928f; 
+    margin: auto;
+    padding-top: 20px;
+}
+
+.avatar{
+    width: 150px;
+    height: 150px;
+    margin-left: 50px;
+    float: left;
+}
+
+.description{
+    float: right;
+    width: 850px;
+    margin-right: 20px;
+}
+
+.folder{
+    width: 200px;
+    height: 200px;
+    margin-left: 25px;
+}
+
+.jumbotron{
+    margin: auto;
+    margin-top: 60px;
+    padding-top: 2px;
+    border-radius: 5px;
+    width: 1100px;
+    height: 350px;
+    background-color: #60928f;
+}
+
+.jumbotron h2{
+   padding-top: 0px;
+}
+
+.btnlogin{
+    position: absolute;
+    right: 362px;
+    top: 8px;
+}
+
+.col-md-4 h3{
+   margin-left: 55px;
+}
+
+.btn-default{
+    position: absolute;
+    left: 0px;
+}
+
+.btnrescue{
+    margin: auto;
+    margin-left: 500px;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    height: 100px;
+}
+
+.btnrescue:hover{
+    color: white;
+}
+
+#infoposition{
+    margin-top: 20px;
+    font-weight: bold;
+}

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<DAL.Utilisateur>
+
+@{
+    ViewBag.Title = "GestionUser";
+}
+
+<h2>GestionUser</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    @if (MVCMedicoSoft.Models.MySession.isMedecin)
+    {
+        <a href="/User/ListPatient" class="btn-danger"> Vos patients </a>
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUtilisateur)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Login)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateNaissance)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUtilisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActif)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateNaissance)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.NumRegNational }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdUtilisateur }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdUtilisateur })
+            </td>
+        </tr>
+    }
+
+</table>
