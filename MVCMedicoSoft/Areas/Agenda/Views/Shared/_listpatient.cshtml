@@ -1,0 +1,224 @@
+﻿@model IEnumerable<DAL.Personne>
+
+<style>
+    html, body {
+        margin: 0; /* Remove body margin/padding */
+        padding: 0;
+        overflow: hidden; /* Remove scroll bars on browser window */
+        font-size: 75%;
+    }
+    /*Splitter style */
+
+
+    #LeftPane {
+        /* optional, initial splitbar position */
+        overflow: auto;
+    }
+    /*
+     * Right-side element of the splitter.
+    */
+
+    #RightPane {
+        padding: 2px;
+        overflow: auto;
+    }
+
+    .ui-tabs-nav li {
+        position: relative;
+    }
+
+    .ui-tabs-selected a span {
+        padding-right: 10px;
+    }
+
+    .ui-tabs-close {
+        display: none;
+        position: absolute;
+        top: 3px;
+        right: 0px;
+        z-index: 800;
+        width: 16px;
+        height: 14px;
+        font-size: 10px;
+        font-style: normal;
+        cursor: pointer;
+    }
+
+    .ui-tabs-selected .ui-tabs-close {
+        display: block;
+    }
+
+    .ui-layout-west .ui-jqgrid tr.jqgrow td {
+        border-bottom: 0px none;
+    }
+
+    .ui-datepicker {
+        z-index: 1200;
+    }
+
+    .rotate {
+        /* for Safari */
+        -webkit-transform: rotate(-90deg);
+        /* for Firefox */
+        -moz-transform: rotate(-90deg);
+        /* for Internet Explorer */
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    }
+</style>
+
+@*<script src="bigset.js" type="text/javascript">
+        jQuery("#bigset").jqGrid({
+            url: 'bigset.php',
+            datatype: "json",
+            height: 255,
+            colNames: ['Index', 'Name', 'Code'],
+            colModel: [
+                { name: 'item_id', index: 'item_id', width: 65 },
+                { name: 'item', index: 'item', width: 150 },
+                { name: 'item_cd', index: 'item_cd', width: 100 }
+            ],
+            rowNum: 12,
+            //   	rowList:[10,20,30],
+            mtype: "POST",
+            pager: jQuery('#pagerb'),
+            pgbuttons: false,
+            pgtext: false,
+            pginput: false,
+            sortname: 'item_id',
+            viewrecords: true,
+            sortorder: "asc"
+        });
+        var timeoutHnd;
+        var flAuto = false;
+
+        function doSearch(ev) {
+            if (!flAuto)
+                return;
+            //	var elem = ev.target||ev.srcElement;
+            if (timeoutHnd)
+                clearTimeout(timeoutHnd)
+            timeoutHnd = setTimeout(gridReload, 500)
+        }
+
+        function gridReload() {
+            var nm_mask = jQuery("#item_nm").val();
+            var cd_mask = jQuery("#search_cd").val();
+            jQuery("#bigset").jqGrid('setGridParam', { url: "bigset.php?nm_mask=" + nm_mask + "&cd_mask=" + cd_mask, page: 1 }).trigger("reloadGrid");
+        }
+        function enableAutosubmit(state) {
+            flAuto = state;
+            jQuery("#submitButton").attr("disabled", state);
+        }
+    </script>
+
+    <div class="h">Search By:</div>
+    <div>
+        <input type="checkbox" id="autosearch" onclick="enableAutosubmit(this.checked)"> Enable Autosearch <br />
+        Registre National<br />
+        <input type="text" id="search_cd" onkeydown="doSearch(arguments[0]||event)" />
+    </div>
+    <div>
+        Nom<br>
+        <input type="text" id="item" onkeydown="doSearch(arguments[0]||event)" />
+        <button onclick="gridReload()" id="submitButton" style="margin-left:30px;">Rechercher</button>
+    </div>
+
+    <br />
+    <table id="bigset"></table>
+    <div id="pagerb"></div>*@
+
+
+<tr>
+    <th>
+        <form method="post">
+            Nom :<input type="text" name="txtSearchName" /><br />
+            Date naissance :<input type="date" name="dtNaiss" />
+            <button>Rechercher</button>
+        </form>
+    </th>
+    <table class="table">
+        <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumRegNational)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateNaissance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodePostal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ville)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdresseMail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pays)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelFixe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelMobile)
+        </th>
+</tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><input type="radio" value="@Html.DisplayFor(modelItem=>item.NumRegNational)" name="rdPatientSel" /></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumRegNational)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateNaissance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodePostal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ville)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdresseMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelFixe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelMobile)
+            </td>
+        </tr>
+    }
+
+<h3>Choisir Medecin</h3>
+</table>

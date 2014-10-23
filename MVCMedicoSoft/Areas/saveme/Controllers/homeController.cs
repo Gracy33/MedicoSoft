@@ -20,13 +20,13 @@ namespace MVCMedicoSoft.Areas.saveme.Controllers
         [HttpPost]
         public ActionResult index(string num)
         {
-            ViewBag.step = 1;
             Personne p = Personne.getInfo(num);
             string NomMedecin = "";
             if (p != null)
             {
                 if (p.getReferent(out NomMedecin))
                 {
+                    ViewBag.Medecin = NomMedecin;
                     return View("rescue", p);
                 }
                 else

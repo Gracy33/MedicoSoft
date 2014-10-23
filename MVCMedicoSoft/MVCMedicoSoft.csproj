@@ -110,15 +110,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\saveme\Models\" />
-    <Folder Include="Views\Agenda\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Agenda\AgendaAreaRegistration.cs" />
+    <Compile Include="Areas\Agenda\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Agenda\Models\BoiteMedecinEtPersonne.cs" />
     <Compile Include="Areas\saveme\Controllers\homeController.cs" />
     <Compile Include="Areas\saveme\savemeAreaRegistration.cs" />
-    <Compile Include="Controllers\AgendaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -153,6 +154,11 @@
     <Content Include="Areas\saveme\Views\home\rescue.cshtml" />
     <Content Include="Areas\saveme\Views\home\index.cshtml" />
     <Content Include="Areas\saveme\Views\home\death.cshtml" />
+    <Content Include="Areas\Agenda\Views\web.config" />
+    <Content Include="Areas\Agenda\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Agenda\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Agenda\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Agenda\Views\Shared\_listpatient.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
